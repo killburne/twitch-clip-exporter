@@ -32,9 +32,10 @@ async function readTwitchConfig(): Promise<TwitchConfig | null> {
 
 async function writeTwitchConfig(conf: TwitchConfig) {
     try {
+        console.log(`Saving Client-ID and Client-Secret to ${configFile}`);
         await writeFile(configFile, JSON.stringify(conf));
     } catch (e) {
-        console.warn(`failed to save config to ${configFile}`)
+        console.warn(`Failed to save config to ${configFile}`)
     }
 }
 
